@@ -1,0 +1,31 @@
+{
+  "name": "kaizenbox",
+  "version": "1.0.0",
+  "description": "Property Management Software",
+  "main": "app.ts",
+  "scripts": {
+    "start:watch": "nodemon src/app.ts",
+    "start": "npx ts-node src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miguel Zepeda",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "helmet": "^5.1.1",
+    "mysql": "^2.18.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^5.0.0",
+    "@types/mysql": "^2.15.26",
+    "@types/uuid": "^8.3.4",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.7.0",
+    "typescript": "^5.6.3"
+  }
+}
