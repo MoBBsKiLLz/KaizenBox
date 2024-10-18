@@ -33,3 +33,7 @@ export const updateUser = async (user: User) => {
 export const deleteUser = async (userId: number) => {
     return execute<OkPacket>(userQueries.deleteUser, [userId]);
 };
+
+export const assignFacilityToUser = async (userId: number, facilityId: number) => {
+    return execute<OkPacket>(userQueries.assignFacilityToUser, [userId, facilityId]);
+};

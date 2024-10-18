@@ -35,3 +35,12 @@ export const updateFacility = async (facility: Facility) => {
 export const deleteFacility = async (facilityId: number) => {
     return execute<OkPacket>(facilityQueries.deleteFacility, [facilityId]);
 };
+
+export const readFacilitiesByUserId = async (userId: number): Promise<Facility[]> => {
+    return execute<Facility[]>(facilityQueries.readFacilitiesByUserId, [userId]);
+};
+
+export const checkFacilitiesExist = async (facilityIds: number[]) => {
+    const results = await execute<Facility[]>(facilityQueries.checkFacilitiesExist, [facilityIds]);
+    return results.map(facility => facility.facilityId);
+};

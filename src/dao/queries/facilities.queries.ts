@@ -42,5 +42,19 @@ export const facilityQueries = {
     deleteFacility: `
         DELETE FROM kaizenbox.facilities
         WHERE facility_id = ?
+    `,
+    readFacilitiesByUserId: `
+        SELECT
+            f.facility_id AS facilityId, f.facility_name AS facility_name, f.address_1 AS address_1, f.address_2 AS address_2, 
+            f.city AS city, f.state AS state, f.postal AS postal, f.contact_number AS contact_number, f.email AS email, 
+            f.created_at AS created_at, f.updated_at AS updated_at
+        FROM kaizenbox.facilities f
+        JOIN kaizenbox.user_facilities AS uf ON f.facility_id = uf.facility_id
+        WHERE uf.user_id = ?
+    `,
+    checkFacilitiesExist: `
+        SELECT facility_id 
+        FROM facilities 
+        WHERE facility_id IN (?)
     `
 }

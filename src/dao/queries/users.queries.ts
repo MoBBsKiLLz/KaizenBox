@@ -37,5 +37,8 @@ export const userQueries = {
     deleteUser: `
         DELETE FROM kaizenbox.users
         WHERE user_id = ?
+    `,
+    assignFacilityToUser: `
+        INSERT INTO user_facilities (user_id, facility_id) VALUES (?, ?)
     `
 }
