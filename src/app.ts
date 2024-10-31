@@ -1,14 +1,18 @@
+import 'reflect-metadata';
 import dotenv from "dotenv"; // Import environment variables
 import express, { Request, Response } from 'express'; // Import ExpressJS
 import usersRouter from './routes/users.routes';
 import facilitiesRouter from './routes/facilities.routes';
 import unitGroupsRouter from './routes/unitgroups.routes';
 import unitsRouter from './routes/units.routes';
+import authRoutes from './routes/auth.routes';
 import logger from './middleware/logger.middleware';
 import cors from 'cors';
 import helmet from 'helmet';
 
-dotenv.config({ path: "./.env" }); // Load environment variables
+dotenv.config({ path: "./.env", debug: true }); // Load environment variables
+
+console.log('Logged JWT_SECRET from app.ts:', process.env.JWT_SECRET); 
 
 const app = express(); // Using ExpressJS
 const port = 3000; // Port used
@@ -33,7 +37,7 @@ if (process.env.NODE_ENV == 'development') {
 }
 
 // Register routes after middleware
-app.use('/', [usersRouter, facilitiesRouter, unitGroupsRouter, unitsRouter]);
+app.use('/', [authRoutes, usersRouter, facilitiesRouter, unitGroupsRouter, unitsRouter]);
 
 // Start the server
 app.listen(port, () => {

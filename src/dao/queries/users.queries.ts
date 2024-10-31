@@ -27,7 +27,7 @@ export const userQueries = {
         WHERE kaizenbox.users.user_id LIKE ?
     `,
     createUser: `
-        INSERT INTO users(username, password) VALUES(?,?)
+        INSERT INTO users(username, password) VALUES(?, ?);
     `,
     updateUser: `
         UPDATE kaizenbox.users
